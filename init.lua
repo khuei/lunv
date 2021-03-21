@@ -1,3 +1,5 @@
+require('config.settings')
+
 vim.cmd [[packadd! deoplete]]
 vim.cmd [[packadd! deoplete-lsp]]
 vim.cmd [[packadd! fzy-native]]

@@ -1,0 +1,27 @@
+[submodule "deoplete"]
+	path = pack/bundle/opt/deoplete
+	url = https://github.com/Shougo/deoplete.nvim.git
+[submodule "deoplete-lsp"]
+	path = pack/bundle/opt/deoplete-lsp
+	url = https://github.com/Shougo/deoplete-lsp.git
+[submodule "fzy-native"]
+	path = pack/bundle/opt/fzy-native
+	url = https://github.com/nvim-telescope/telescope-fzy-native.nvim.git
+[submodule "lspconfig"]
+	path = pack/bundle/opt/lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "plenary"]
+	path = pack/bundle/opt/plenary
+	url = https://github.com/nvim-lua/plenary.nvim.git
+[submodule "popup"]
+	path = pack/bundle/opt/popup
+	url = https://github.com/nvim-lua/popup.nvim.git
+[submodule "telescope"]
+	path = pack/bundle/opt/telescope
+	url = https://github.com/nvim-telescope/telescope.nvim.git
+[submodule "treesitter"]
+	path = pack/bundle/opt/treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+[submodule "ultisnips"]
+	path = pack/bundle/opt/ultisnips
+	url = https://github.com/SirVer/ultisnips.git

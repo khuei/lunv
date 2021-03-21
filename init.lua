@@ -1,5 +1,6 @@
 require('config.settings')
 require('config.statusline')
+require('config.autocmds')
 
 vim.cmd [[packadd! deoplete]]
 vim.cmd [[packadd! deoplete-lsp]]

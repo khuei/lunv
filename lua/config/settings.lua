@@ -76,6 +76,10 @@ if vim.fn.has('folding') then
 	vim.o.foldlevelstart = 99
 end
 
+if os.getenv('TERM') == 'linux' then
+	vim.o.guicursor = ''
+end
+
 if vim.fn.has('termguicolors') then
 	vim.o.termguicolors = true
 end

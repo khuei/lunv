@@ -4,7 +4,7 @@ require('config.mappings')
 require('config.settings')
 require('config.statusline')
 
-vim.api.nvim_command([[
+vim.cmd([[
 packadd! deoplete
 packadd! deoplete-lsp
 packadd! fzy-native

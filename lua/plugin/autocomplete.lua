@@ -118,7 +118,7 @@ if vim.fn.exists(':UltiSnipsEdit') then
 end
 
 if vim.fn.has('autocmd') then
-	vim.api.nvim_command([[
+	vim.cmd([[
 	autocmd! User UltiSnipsEnterFirstSnippet
 	autocmd User UltiSnipsEnterFirstSnippet lua require'plugin.autocomplete'.setup_mappings()
 	autocmd! User UltiSnipsExitLastSnippet
@@ -126,7 +126,7 @@ if vim.fn.has('autocmd') then
 	]])
 
 	if vim.fn.has('vim_starting') then
-		vim.api.nvim_command("autocmd CursorHold,CursorHoldI * lua require'plugin.autocomplete'.deoplete_init()")
+		vim.cmd("autocmd CursorHold,CursorHoldI * lua require'plugin.autocomplete'.deoplete_init()")
 	end
 end
 

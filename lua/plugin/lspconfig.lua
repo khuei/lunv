@@ -26,14 +26,14 @@ if os.getenv('TERM') ~= 'linux' then
 end
 
 lspconfig.setup_lsp_highlight = function ()
-	vim.api.nvim_command([[
+	vim.cmd([[
 	exec 'highlight LspDiagnosticsDefaultError cterm=italic gui=italic ' . ' guifg=' . synIDattr(synIDtrans(hlID('WarningMsg')), 'fg', 'gui')
 	exec 'highlight LspDiagnosticsDefaultHint cterm=italic gui=italic ' . ' guifg=' . synIDattr(synIDtrans(hlID('ModeMsg')), 'fg', 'gui')
 	exec 'highlight LspDiagnosticsDefaultInformation cterm=italic gui=italic ' . ' guifg=' . synIDattr(synIDtrans(hlID('Conditional')), 'fg', 'gui')
 	exec 'highlight LspDiagnosticsDefaultWarning cterm=italic gui=italic' . ' guifg=' . synIDattr(synIDtrans(hlID('Type')), 'fg', 'gui')
 	]])
 
-	vim.api.nvim_command([[
+	vim.cmd([[
 	exec 'highlight LspDiagnosticsSignError' .  ' guibg=' . synIDattr(synIDtrans(hlID('ColorColumn')), 'bg', 'gui') . ' guifg=' . synIDattr(synIDtrans(hlID('WarningMsg')), 'fg', 'gui')
 	exec 'highlight LspDiagnosticsSignHint' . ' guibg=' . synIDattr(synIDtrans(hlID('ColorColumn')), 'bg', 'gui') . ' guifg=' . synIDattr(synIDtrans(hlID('ModeMsg')), 'fg', 'gui')
 	exec 'highlight LspDiagnosticsSignInformation' . ' guibg=' . synIDattr(synIDtrans(hlID('ColorColumn')), 'bg', 'gui') . ' guifg=' . synIDattr(synIDtrans(hlID('Conditional')), 'fg', 'gui')

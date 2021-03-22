@@ -41,6 +41,8 @@ lspconfig.setup_lsp_highlight = function ()
 	]])
 end
 
-vim.cmd("autocmd ColorScheme * lua require'plugin.lspconfig'.setup_lsp_highlight()")
+if vim.fn.has('autocmd') then
+	vim.cmd("autocmd ColorScheme * lua require'plugin.lspconfig'.setup_lsp_highlight()")
+end
 
 return lspconfig

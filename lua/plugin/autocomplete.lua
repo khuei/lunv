@@ -43,7 +43,7 @@ vim.g.ulti_expand_res = 0
 
 autocomplete.expand_or_jump = function(direction)
 	vim.cmd('call UltiSnips#ExpandSnippet()')
-	if vim.api.nvim_eval('ulti_expand_res') == 0 then
+	if vim.api.nvim_get_var('ulti_expand_res') == 0 then
 		if vim.fn.pumvisible() then
 			if direction == 'n' then
 				return vim.api.nvim_replace_termcodes('<C-n>', true, false, true)
@@ -54,7 +54,7 @@ autocomplete.expand_or_jump = function(direction)
 			if expansion_active then
 				if direction == 'n' then
 					vim.cmd('call UltiSnips#JumpForwards()')
-					if vim.api.nvim_eval("exists('g:ulti_jump_forwards_res')") == 0 then
+					if vim.api.nvim_get_var('ulti_jump_forwards_res') == 0 then
 						return vim.api.nvim_replace_termcodes('<Tab>', true, false, true)
 					end
 				else
@@ -97,7 +97,7 @@ vim.api.nvim_set_keymap('i', '<C-k>', "pumvisible() ? '<C-p>' : '<C-k>'", opts)
 
 vim.b.did_after_plugin_ultisnips_after = 1
 
-if vim.api.nvim_eval("exists(':UltiSnipsEdit')") then
+if vim.fn.exists(':UltiSnipsEdit') then
 	local opts = { noremap = true, silent = true }
 
 	vim.api.nvim_set_keymap('i',
@@ -117,7 +117,7 @@ if vim.api.nvim_eval("exists(':UltiSnipsEdit')") then
 	"<Esc>:luaeval(\"require'plugin.autocomplete'.expand_or_jump('p')\")<CR>", opts)
 end
 
-if vim.api.nvim_eval("has('autocmd')") then
+if vim.fn.has('autocmd') then
 	vim.api.nvim_command([[
 	autocmd! User UltiSnipsEnterFirstSnippet
 	autocmd User UltiSnipsEnterFirstSnippet lua require'plugin.autocomplete'.setup_mappings()
@@ -125,7 +125,7 @@ if vim.api.nvim_eval("has('autocmd')") then
 	autocmd User UltiSnipsExitLastSnippet lua require'plugin.autocomplete'.teardown_mappings()
 	]])
 
-	if vim.api.nvim_eval("has('vim_starting')") then
+	if vim.fn.has('vim_starting') then
 		vim.api.nvim_command("autocmd CursorHold,CursorHoldI * lua require'plugin.autocomplete'.deoplete_init()")
 	end
 end

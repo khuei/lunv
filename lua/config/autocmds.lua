@@ -57,13 +57,15 @@ autocmds.win_leave = function()
 	blur_window()
 end
 
-vim.cmd("autocmd BufEnter * lua require'config.autocmds'.buf_enter()")
-vim.cmd("autocmd FocusGained * lua require'config.autocmds'.focus_gained()")
-vim.cmd("autocmd FocusLost * lua require'config.autocmds'.focus_lost()")
-vim.cmd("autocmd InsertEnter * lua require'config.autocmds'.insert_enter()")
-vim.cmd("autocmd InsertLeave * lua require'config.autocmds'.insert_leave()")
-vim.cmd("autocmd VimEnter * lua require'config.autocmds'.vim_enter()")
-vim.cmd("autocmd WinEnter * lua require'config.autocmds'.win_enter()")
-vim.cmd("autocmd WinLeave * lua require'config.autocmds'.win_leave()")
+if vim.fn.has('autocmd') then
+	vim.cmd("autocmd BufEnter * lua require'config.autocmds'.buf_enter()")
+	vim.cmd("autocmd FocusGained * lua require'config.autocmds'.focus_gained()")
+	vim.cmd("autocmd FocusLost * lua require'config.autocmds'.focus_lost()")
+	vim.cmd("autocmd InsertEnter * lua require'config.autocmds'.insert_enter()")
+	vim.cmd("autocmd InsertLeave * lua require'config.autocmds'.insert_leave()")
+	vim.cmd("autocmd VimEnter * lua require'config.autocmds'.vim_enter()")
+	vim.cmd("autocmd WinEnter * lua require'config.autocmds'.win_enter()")
+	vim.cmd("autocmd WinLeave * lua require'config.autocmds'.win_leave()")
+end
 
 return autocmds

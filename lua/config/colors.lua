@@ -71,7 +71,9 @@ colors.setup_highlight = function()
 	vim.cmd('highlight link Vertsplit LineNr')
 end
 
-vim.cmd("autocmd VimEnter,FocusGained * lua require'config.colors'.check_colorscheme()")
-vim.cmd("autocmd ColorScheme * lua require'config.colors'.setup_highlight()")
+if vim.fn.has('autocmd') then
+	vim.cmd("autocmd VimEnter,FocusGained * lua require'config.colors'.check_colorscheme()")
+	vim.cmd("autocmd ColorScheme * lua require'config.colors'.setup_highlight()")
+end
 
 return colors

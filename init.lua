@@ -4,12 +4,14 @@ require('config.mappings')
 require('config.settings')
 require('config.statusline')
 
-vim.cmd [[packadd! deoplete]]
-vim.cmd [[packadd! deoplete-lsp]]
-vim.cmd [[packadd! fzy-native]]
-vim.cmd [[packadd! lspconfig]]
-vim.cmd [[packadd! plenary]]
-vim.cmd [[packadd! popup]]
-vim.cmd [[packadd! telescope]]
-vim.cmd [[packadd! treesitter]]
-vim.cmd [[packadd! ultisnips]]
+vim.api.nvim_command([[
+packadd! deoplete
+packadd! deoplete-lsp
+packadd! fzy-native
+packadd! lspconfig
+packadd! plenary
+packadd! popup
+packadd! telescope
+packadd! treesitter
+packadd! ultisnips
+]])

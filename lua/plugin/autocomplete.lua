@@ -11,7 +11,7 @@ autocomplete.setup_mappings = function()
 
 	vim.api.nvim_buf_set_keymap('s',
 	vim.api.nvim_get_var('UltiSnipsJumpForwardTrigger'),
-	"<Esc>:luaeval(\"require'plugin.autocomplete'.expand_or_jump('n')\")<CR>", opts)
+	"<Esc>:lua require'plugin.autocomplete'.expand_or_jump('n')<CR>", opts)
 
 	vim.api.nvim_buf_set_keymap('i',
 	vim.api.nvim_get_var('UltiSnipsJumpBackwardTrigger'),
@@ -19,7 +19,7 @@ autocomplete.setup_mappings = function()
 
 	vim.api.nvim_buf_set_keymap('s',
 	vim.api.nvim_get_var('UltiSnipsJumpBackwardTrigger'),
-	"<Esc>:luaeval(\"require'plugin.autocomplete'.expand_or_jump('p')\")<CR>", opts)
+	"<Esc>:lua require'plugin.autocomplete'.expand_or_jump('p')<CR>", opts)
 
 	local opts = { map = true, expr = true, silent = true }
 
@@ -106,7 +106,7 @@ if vim.fn.exists(':UltiSnipsEdit') then
 
 	vim.api.nvim_set_keymap('s',
 	vim.api.nvim_get_var('UltiSnipsExpandTrigger'),
-	"<Esc>:luaeval(\"require'plugin.autocomplete'.expand_or_jump('n')\")<CR>", opts)
+	"<Esc>:lua require'plugin.autocomplete'.expand_or_jump('n')<CR>", opts)
 
 	vim.api.nvim_set_keymap('i',
 	vim.api.nvim_get_var('UltiSnipsJumpBackwardTrigger'),
@@ -114,7 +114,7 @@ if vim.fn.exists(':UltiSnipsEdit') then
 
 	vim.api.nvim_set_keymap('s',
 	vim.api.nvim_get_var('UltiSnipsJumpBackwardTrigger'),
-	"<Esc>:luaeval(\"require'plugin.autocomplete'.expand_or_jump('p')\")<CR>", opts)
+	"<Esc>:lua require'plugin.autocomplete'.expand_or_jump('p')<CR>", opts)
 end
 
 if vim.fn.has('autocmd') then

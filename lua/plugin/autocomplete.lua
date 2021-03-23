@@ -84,7 +84,6 @@ autocomplete.deoplete_init = function()
 	vim.cmd("call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])")
 end
 
-vim.g.UltiSnipsExpandTrigger = '<Tab>'
 vim.g.UltiSnipsJumpForwardTrigger = '<Tab>'
 vim.g.UltiSnipsJumpBackwardTrigger = '<S-Tab>'
 

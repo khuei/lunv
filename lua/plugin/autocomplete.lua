@@ -62,13 +62,59 @@ autocomplete.expand_or_jump = function(direction)
 				end
 			else
 				if direction == 'n' then
-					return vim.api.nvim_replace_termcodes('<Tab>', true, false, true)
+					return smart_tab()
 				end
 			end
 		end
 	end
 
 	return ''
+end
+
+if vim.fn.exists('*shiftwidth') then
+	get_tabspace = function()
+		if vim.api.nvim_get_option('softtabstop') <= 0 then
+			return vim.fn.shiftwidth()
+		else
+			return vim.api.nvim_get_option('softtabstop')
+		end
+	end
+else
+	get_tabspace = function()
+		if vim.api.nvim_get_option('softtabstop') <= 0 then
+			if vim.api.nvim_get_option('shiftwidth') == 0 then
+				return vim.api.nvim_get_option('tabstop')
+			else
+				return vim.api.nvim_get_option('shiftwidth')
+			end
+		else
+			return vim.api.nvim_get_option('softtabstop')
+		end
+	end
+end
+
+smart_tab = function()
+	if vim.fn.exists('l:expandtab') ~= 0 then
+		return vim.api.nvim_replace_termcodes('<Tab>', true, false, true)
+	else
+		local prefix = vim.fn.strpart(vim.fn.getline('.'), 0, vim.fn.col('.') -1)
+		if prefix == '' then
+			return vim.api.nvim_replace_termcodes('<Tab>', true, false, true)
+		else
+			local sw = get_tabspace()
+			local previous_char = vim.fn.matchstr(prefix, '.$')
+			local previous_column = vim.fn.strlen(prefix) - vim.fn.strlen(previous_char) + 1
+			local current_column = vim.fn.virtcol("[vim.fn.line('.'), previous_column]") + 1
+			local remainder = (current_column - 1) % sw
+			local move
+			if remainder == 0 then
+				move = sw
+			else
+				move = sw - remainder
+			end
+			return vim.api.nvim_call_function('repeat', { ' ', move })
+		end
+	end
 end
 
 autocomplete.deoplete_init = function()

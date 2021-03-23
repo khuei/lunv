@@ -21,7 +21,7 @@ autocomplete.setup_mappings = function()
 	vim.api.nvim_get_var('UltiSnipsJumpBackwardTrigger'),
 	"<Esc>:lua require'plugin.autocomplete'.expand_or_jump('p')<CR>", opts)
 
-	local opts = { map = true, expr = true, silent = true }
+	local opts = { noremap = true, expr = true, silent = true }
 
 	vim.api.nvim_buf_set_keymap(0, 'i', '<CR>', 'pumvisible() ? "<C-Y>" : "<CR>"', opts)
 	vim.api.nvim_buf_set_keymap(0, 's', '<CR>', 'pumvisible() ? "<C-Y>" : "<CR>"', opts)

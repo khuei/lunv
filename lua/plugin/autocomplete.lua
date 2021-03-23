@@ -44,7 +44,7 @@ vim.g.ulti_expand_res = 0
 autocomplete.expand_or_jump = function(direction)
 	vim.cmd('call UltiSnips#ExpandSnippet()')
 	if vim.api.nvim_get_var('ulti_expand_res') == 0 then
-		if vim.fn.pumvisible() then
+		if vim.fn.pumvisible() == 1 then
 			if direction == 'n' then
 				return vim.api.nvim_replace_termcodes('<C-n>', true, false, true)
 			else

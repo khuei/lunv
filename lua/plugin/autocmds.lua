@@ -66,6 +66,7 @@ if vim.fn.has('autocmd') then
 	vim.cmd("autocmd VimEnter * lua require'config.autocmds'.vim_enter()")
 	vim.cmd("autocmd WinEnter * lua require'config.autocmds'.win_enter()")
 	vim.cmd("autocmd WinLeave * lua require'config.autocmds'.win_leave()")
+	vim.cmd("autocmd TextYankPost * lua vim.highlight.on_yan{timeout=200}")
 end
 
 return autocmds
